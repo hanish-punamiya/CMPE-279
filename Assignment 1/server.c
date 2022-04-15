@@ -39,7 +39,7 @@ int drop_privilege(){
         int error = pid = wait(&status);
         if(error < 0){
             perror("Log: Parent: Error in wait");
-            _exit(1);
+            exit(1);
         }
         // printf("Log: Parent: Forked child pid: %d\n", childPid);  
         // printf("Log: Parent: Completed execution\n");
@@ -47,7 +47,7 @@ int drop_privilege(){
     }
      else{
         perror("Error! fork() unsuccessful");
-        _exit(2);                                                                                                                                          
+        exit(2);                                                                                                                                          
     }
     return 0;
 
