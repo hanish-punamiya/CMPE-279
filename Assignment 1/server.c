@@ -36,8 +36,7 @@ int drop_privilege(){
     }
     else if(childPid>0){
         // printf("Log: Parent: Waiting for child process\n");
-        int error = pid = wait(&status);
-        if(error < 0){
+        if(( pid = wait(&status)) < 0){
             perror("Log: Parent: Error in wait");
             exit(1);
         }
