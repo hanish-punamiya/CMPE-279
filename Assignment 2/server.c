@@ -53,7 +53,6 @@ int drop_privilege(){
         perror("Error! fork() unsuccessful");
         exit(2);                                                                                                                                          
     }
-    wait(0);
     return 0;
 
 }
@@ -131,10 +130,11 @@ int main(int argc, char const *argv[])
 
             //convert socket to string
             char socketString[10];
-            
             sprintf(socketString,"%d",passSocket);
+	    
             char *args[] = {"Y",socketString,NULL};
             execvp(argv[0],args);
     }
+    wait(0);
     return 0;
 }
